@@ -4,6 +4,7 @@
     import be.helb.arami.DTO.FighterRetiredDTO;
     import be.helb.arami.Models.FighterRetired;
     import be.helb.arami.Services.FighterService;
+    import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.http.ResponseEntity;
     import org.springframework.web.bind.annotation.GetMapping;
     import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@
 
         FighterService fighterService;
 
+        @Autowired
         public FighterController(FighterService fighterService){
             this.fighterService = fighterService;
         }

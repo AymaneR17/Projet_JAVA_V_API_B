@@ -4,6 +4,7 @@ package be.helb.arami.Services;
 import be.helb.arami.DAO.FighterRepository;
 import be.helb.arami.DTO.FighterRetiredDTO;
 import be.helb.arami.Models.FighterRetired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -16,6 +17,7 @@ public class FighterService {
 
     FighterRepository fighterRepository;
 
+    @Autowired
     public FighterService(FighterRepository fighterRepository){
         this.fighterRepository = fighterRepository;
     }
@@ -24,7 +26,7 @@ public class FighterService {
       List<FighterRetired> fighterRetireds = fighterRepository.findByFighterIdAndIsRetired(id, isRetired);
       return ConvertToDtoList(fighterRetireds);
     }
-
+//
     public FighterRetiredDTO createFighterRetired(FighterRetired fighterRetired){
             FighterRetired savedFighter = fighterRepository.save(fighterRetired);
             return ConvertToDTO(savedFighter);
